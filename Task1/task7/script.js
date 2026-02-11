@@ -1,0 +1,1 @@
+console.log("HTML and Js integration.External Js connected succesfully!")

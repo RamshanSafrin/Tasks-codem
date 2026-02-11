@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable Behavior</title>
+</head>
+<body>
+    <script>
+        var num1=10;
+        let num2=20;
+        const num3=30;
+        console.log("var variable value:"+num1);
+        num1=15;
+        console.log("var after reassignment:"+num1);
+        var num1=25;
+        console.log("var after redeclaration"+num1);
+        console.log("let variable value:"+num2);
+        num2=26;
+        console.log("let after reassignment:"+num2);
+       // let num2=19;  
+       // Error :Identifier num2 has already been declared.Therefore the let can not be redeclared in same scope.
+       
+        console.log("const value:"+num3);
+        //num3=14;Error:it shows type error as the const variable can't be changed 
+        //const num3=21;
+        // //Error:num3 has already been declared.
+
+    </script>
+</body>
+</html>
