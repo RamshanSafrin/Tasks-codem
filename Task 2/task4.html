@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Toss Game</title>
+</head>
+<body>
+    <button onclick="coinToss('head')">Heads</button>
+    <button onclick="coinToss('tails')">Tails </button>
+    <script>
+        function coinToss(userChoice){
+            let randomNo=Math.random();
+            let computerChoice;
+            if(randomNo>0.5){
+                computerChoice='head';
+
+            }
+            else{
+                computerChoice='tails';
+
+            }
+            let outcome;
+            if(userChoice===computerChoice){
+                outcome="Player wins";
+            }
+            else{
+                outcome="Player loses";
+            }
+            alert("PlayerChoice :"+userChoice+"\nComputer Choice :"+computerChoice+"\nResult :"+outcome);
+        }
+    </script>
+</body>
+</html>

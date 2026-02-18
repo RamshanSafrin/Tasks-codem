@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account security Check</title>
+</head>
+<body>
+    <script>
+        function securityCheck(passwordStatus,OTPverificaton,accountBlock){
+            if(passwordStatus=true && OTPverificaton===true && accountBlock===false){
+                console.log("Login successfull!");
+            }
+            else {
+                console.log("Login Failure!");
+            }
+        }
+        securityCheck(true,true,false);
+        securityCheck(false,true,false);
+    </script>
+</body>
+</html>

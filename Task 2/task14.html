@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification filter</title>
+</head>
+<body>
+    <script>
+        function checkNotification(message,isUrgent){
+            if(isUrgent|| message.toLowerCase().includes("urgent")||message.toLowerCase().includes("important")){
+                alert("Notification type :IMPORTANT\nMessage: "+message.toUpperCase());
+            }
+            else{
+                alert("Notification type:NORMAL\n Message :"+message);
+            }
+        }
+        checkNotification("This is very urgent");
+        checkNotification("Hi,how are you?")
+
+    </script>
+    
+</body>
+</html>

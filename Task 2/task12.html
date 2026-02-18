@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password strength validator</title>
+</head>
+<body>
+    <script>
+        function validatePassword(length,characters){
+            let hasletters=/[a-zA-Z]/.test(characters);
+            let hasNumber=/[0-9]/.test(characters);
+            let specialChar=/[!@#$&*()?]/.test(characters);
+            if(length<6||(hasletters&& !hasNumber&&!specialChar)){
+                console.log("weak");
+
+            }
+             else if(length>=8 && hasNumber &&hasletters && specialChar){
+                console.log("Strong");
+            }
+            else if(length>=8 && hasNumber && hasletters){
+                console.log("Medium");
+            }
+            else{
+                console.log("Invalid password");
+            }
+            
+        }
+        validatePassword(6,"safrin");
+        validatePassword(8,"saf@2026");
+        validatePassword(8,"safrin26");
+    </script>
+</body>
+</html>

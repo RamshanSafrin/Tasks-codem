@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message intent detection</title>
+</head>
+<body>
+    <script>
+    function detectIntent(message){
+        if (!message || message.trim()==""){
+            console.log("Invalid Message ");
+            return;
+        }
+        let isQuestion=message.includes("?");
+        let isComplaint=message.toLowerCase().includes("problem")||message.toLowerCase().includes("not working");
+
+        let intent;
+        if(isQuestion&&isComplaint){
+            intent="Urgent";
+        }
+        else if(isComplaint){
+            intent="Complaint";
+
+        }
+        else if(isQuestion){
+            intent="Question";
+        }
+        else{
+            intent="other";
+        }
+        console.log("Intent:"+intent+"\nOriginal message:"+message)
+    }
+    detectIntent("Is everythig okay?");
+    detectIntent("The code is not working");
+    detectIntent("How to solve this problem?");
+    </script>
+</body>
+</html>

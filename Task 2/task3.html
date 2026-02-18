@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online order status</title>
+</head>
+<body>
+    <script>
+        function checkOrder(isPaid,inStock){
+            if(isPaid===true && inStock===true){
+                alert('Order Confirmed');
+            }
+            else if(isPaid===true && inStock===false ){
+                alert("Order delayed");
+
+            }
+            else if(isPaid===false){
+                alert('Payment required');
+            }
+            else{
+                alert('invalid');
+            }
+        }
+        checkOrder(true,true);
+        checkOrder(true,false);
+        checkOrder(false,true);
+
+    </script>
+</body>
+</html>

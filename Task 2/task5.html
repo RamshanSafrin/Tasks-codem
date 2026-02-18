@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Processing</title>
+</head>
+<body>
+    <button onclick="processOrder(1000,false,'')">Small</button>
+    <button onclick="processOrder(2000,false,'SAVE10')">Medium </button>
+    <button onclick="processOrder(3500,true,'SAVE10')">Large</button>
+    <script>
+        function validateCoupon(couponCode){
+            if(couponCode=='SAVE10'){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        function processOrder(orderAmount,isMember,couponCode){
+            if(isNaN(orderAmount) || orderAmount<0 ){
+                console.log("Invalid Order Amount");
+                return;
+            }
+            let discount=0;
+            if(orderAmount>=3000 || isMember===true){
+                discount=20;
+            }
+            else if(orderAmount>=1500 && couponCode==="SAVE10"){
+                discount=10;
+            }
+            else if(couponCode==""){
+                discount=0;
+            }
+            else{
+                discount=5;
+            }
+            let discountAmount = (orderAmount*discount)/100;
+            let finalAmount=orderAmount-discountAmount;
+            let deliveryStatus;
+            if(finalAmount>=2000){
+                deliveryStatus="Free Delivery.";
+
+            }
+            else{
+                finalAmount+=100;
+                deliveryStatus="Delivery charge 100rs applied";
+
+            }
+            let validity=validateCoupon(couponCode);
+            console.log("Order Amount: "+orderAmount);
+            console.log("Discount:"+ discount);
+            console.log("Final Amount:"+ finalAmount);
+            console.log("Delivery status:"+ deliveryStatus);
+            console.log("Coupon Validity:"+(validity? "Yes" : "No"));
+            
+
+        }
+    </script>
+</body>
+</html>
