@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <style>
+        .completed{
+            text-decoration: line-through;
+            color:green;
+        }
+        li{
+            margin: 8px 0;
+        }
+        button{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="todo"></div>
+    <script>
+        let todoData={
+            tasks:[]
+        }
+        let todo=document.getElementById("todo");
+        let input=document.createElement("input");
+        input.placeholder="Enter task:";
+        let addBtn=document.createElement("button");
+        addBtn.textContent="Add tasks";
+        let list=document.createElement("ul");
+        todo.appendChild(input);
+        todo.appendChild(addBtn);
+        todo.appendChild(list);
+        addBtn.addEventListener("click",function(){
+            let text=input.value.trim();
+            if(text===""){
+                alert("Task is empty");
+                return;
+            }
+            let taskObj={
+                tasktext:text,
+                completed:false
+            };
+            todoData.tasks.push(taskObj);
+
+            let li=document.createElement("li");
+            li.textContent=text;
+            let deleteBtn=document.createElement("button");
+            deleteBtn.textContent="Delete";
+            li.appendChild(deleteBtn);
+            list.appendChild(li);
+            input.value="";
+            li.addEventListener("click",function(e){
+                if(e.target===deleteBtn)
+                return;
+            li.classList.toggle("completed");
+            taskObj.completed=!taskObj.completed;
+            console.log(todoData);
+            });
+            deleteBtn.addEventListener("click",function(){
+                list.removeChild(li);
+                todoData.tasks=todoData.tasks.filter(function(t){
+                    return t!==taskObj;
+                });
+                console.log(todoData);
+            });
+            console.log(todoData);
+        })
+    </script>
+</body>
+</html>

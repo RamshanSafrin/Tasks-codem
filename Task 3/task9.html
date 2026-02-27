@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM traversal</title>
+</head>
+<body>
+    <div>
+
+        <p>Paragraph1</p>
+        <p id="middlePara">Paragraph2</p>
+        <p>Paragraph3</p> 
+    </div>
+    <script>
+        let middle=document.getElementById("middlePara");
+        let parent=middle.parentElement;
+        parent.style.backgroundColor="lightblue";
+        let firstChild=parent.children[0];
+        firstChild.textContent="Modidfied First Paragraph";
+        let sibling=middle.nextElementSibling;
+        sibling.style.color="orange";
+    </script>
+</body>
+</html>

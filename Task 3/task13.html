@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>real time input validation</title>
+    <style>
+        .invalid{
+            border: 2px solid red;
+
+        }
+        .valid{
+            border:2px solid green;
+        }
+        .message{
+            font-size:14px;
+            margin-left:10px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        Username:
+        <input type="text" id="username">
+        <span id="userMsg" class="message"></span>
+        <br>
+        Email:
+        <input type="text" id="email">
+        <span id="emailMsg" class="message"></span>
+        <br>
+        Password:
+        <input type="password" id="password">
+        <span id="pswMsg" class="message"></span>
+        <br>
+    </form>
+    <script>
+        let username=document.getElementById("username");
+        let email=document.getElementById("email");
+        let password=document.getElementById("password");
+        let userMsg=document.getElementById("userMsg");
+        let emailMsg=document.getElementById("emailMsg");
+        let pswMsg=document.getElementById("pswMsg");
+        username.addEventListener("input",function(){
+            if(username.value.length<3){
+                username.classList.add("invalid");
+                username.classList.remove("valid");
+                userMsg.textContent="Minimum 3 characters required";
+
+            }
+            else{
+                username.classList.remove("invalid");
+                username.classList.add("valid");
+                userMsg.textContent="Valid username";
+
+            }
+        });
+        email.addEventListener("input",function(){
+            if(!email.value.includes("@")){
+                email.classList.add("invalid");
+                email.classList.remove("valid");
+                emailMsg.textContent="@ required";
+
+            }
+            else{
+                email.classList.remove("invalid");
+                email.classList.add("valid");
+                emailMsg.textContent="Valid email";
+
+            }
+        });
+        password.addEventListener("input",function(){
+            if(password.value.length<6){
+           
+                password.classList.add("invalid");
+                password.classList.remove("valid");
+                pswMsg.textContent="Minimum 6 characters required";
+
+            }
+            else{
+                password.classList.remove("invalid");
+                password.classList.add("valid");
+                pswMsg.textContent="Strong password";
+
+            }
+        });
+        
+    </script>
+    
+</body>
+</html>

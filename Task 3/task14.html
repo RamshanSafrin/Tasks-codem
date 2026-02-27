@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard events</title>
+</head>
+<body>
+    <h2>Press any key</h2>
+    <p id="display">Waiting for key press</p>
+    <script>
+        let display=document.getElementById("display");
+        document.addEventListener("keydown",function(event){
+            display.textContent="Key Dowm:"+event.key;
+            if(event.key==="r"){
+                display.style.color="red";
+
+            }
+             else if(event.key==="b"){
+                display.style.color="blue";
+
+            }
+            else if(event.key==="g"){
+                display.style.color="green";
+
+            }
+            else if(event.key==="Enter"){
+                display.textContent="You pressed enter";
+
+            }
+
+
+
+        });
+        document.addEventListener("keyup",function(event){
+            console.log("Key released:",event.key);
+        });
+    </script>
+    
+</body>
+</html>

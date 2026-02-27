@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecting elements and updating</title>
+</head>
+<body>
+    <h1 id="heading">Welcome</h1>
+    <p class="para">Paragraph 1</p>
+    <p class="para">Paragraph 2</p>
+    <script>
+        let title=document.getElementById("heading");
+        let paragraph=document.getElementsByClassName("para");
+        let para1=document.querySelector(".para");
+        title.textContent="Welcome to Coding";
+        for(let i=0;i<paragraph.length;i++){
+            paragraph[i].textContent="Content"+(i+1);
+        }
+        para1.textContent="First paragraph";
+        title.style.color="blue";
+        title.style.backgroundColor="orange";
+        for(let i=0;i<paragraph.length;i++){
+            paragraph[i].style.color="green";
+            paragraph[i].style.backgroundColor="yellow";
+
+        }
+
+
+    </script>
+</body>
+</html>

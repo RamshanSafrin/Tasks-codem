@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute Manipulation</title>
+</head>
+<body>
+    <button id="toggleBtn">Toggle paragraph</button>
+    <p id="content">This paragraph shows and hides on button click</p>
+   <script>
+    let button=document.getElementById("toggleBtn");
+    let paragraph=document.getElementById("content");
+    button.addEventListener("click",function(){
+        if(paragraph.hasAttribute("hidden")){
+            paragraph.removeAttribute("hidden");
+            console.log("Attribute removed");
+        }
+    else{
+        paragraph.setAttribute("hidden",true);
+        console.log("Attribute added:Para will be hidden");
+
+    }
+    console.log("Hidden attribute exists?:",paragraph.hasAttribute("hidden"));
+
+    });
+   </script>    
+</body>
+</html>

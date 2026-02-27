@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Method using this</title>
+</head>
+<body>
+    <script>
+        let employee={
+            name:"Safrin",
+            age:21,
+            salary:50000,
+            addBonus:function(bonus){
+                this.salary+=bonus;
+                console.log("Updated Bonus:",this.salary);
+
+            }
+        };
+        employee.addBonus(5000);
+        console.log("Final Employee Object:",employee);
+    </script>
+    
+</body>
+</html>

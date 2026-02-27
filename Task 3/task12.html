@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" id="name" placeholder="Enter Name">
+         <p id = "nameError" style="color:red"></p>
+         <input type="email" id="mail" placeholder="Enter mail">
+         <p id = "emailError" style="color:red"></p>
+        <button type="submit">Submit</button>
+
+
+    </form>
+    <p id="succesMsg" style="color:green"></p>
+    <script>
+        let form=document.getElementById("myForm");
+        form.addEventListener("submit",function(event){
+            event.preventDefault();
+            let name=document.getElementById("name").value.trim();
+            let email=document.getElementById("mail").value.trim();
+            let isvalid=true;
+            document.getElementById("nameError").textContent="";
+            document.getElementById("emailError").textContent="";
+            document.getElementById("succesMsg").textContent="";
+            if(name===""){
+                document.getElementById("nameError").textContent="Name is required!";
+                isvalid=false;
+
+            }
+            if(email===""){
+                document.getElementById("emailError").textContent="Email is required!";
+                isvalid=false;
+
+            }
+            if(isvalid){
+                document.getElementById("succesMsg").textContent="Submitted successfully";
+            }
+            
+
+
+        })
+    </script>
+</body>
+</html>

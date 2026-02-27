@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle class</title>
+    <style>
+        .highlightStyle{
+            background-color: rgb(252, 252, 201);
+            color:rgb(248, 139, 139);
+            font-weight: bold;
+            padding: :10px;
+        }
+        #togglebtn{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="togglebtn">Toggle Style</button>
+    <div class="division">Division 1</div>
+    <div class="division">Division 2</div>
+    <div class="division">Division 3</div>
+    <script>
+        let button=document.getElementById("togglebtn");
+        let items=document.getElementsByClassName("division");
+        button.addEventListener("click",function(){
+            for(let i=0;i<items.length;i++){
+                items[i].classList.toggle("highlightStyle");
+
+            }
+        });
+    </script>
+
+</body>
+</html>

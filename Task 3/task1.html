@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Object Manipulkation</title>
+</head>
+<body>
+    <script>
+        let userProfile={
+            name:"Ramshan",
+            age:20,
+            email:"ramshan@gmail.com",
+            isActive:true
+        };
+        userProfile.name="Ramshan safrin";
+        userProfile.age=21;
+        userProfile['isActive']=false;
+        userProfile['email']="safrin@gmail.com";
+        
+        userProfile['role']="student";
+        console.log("Updated Object:" ,userProfile);
+        console.log("Name:",userProfile.name);
+        console.log("Age:",userProfile.age);
+        console.log("Email:",userProfile.email);
+        console.log("Active:",userProfile.isActive);
+        console.log("Role:",userProfile.role);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamically creating lists</title>
+</head>
+<body>
+    <div id="listContainer">
+        <h2>List items</h2>
+    </div>
+    <script>
+        let items=[
+            {name:"Pencil",price:10},
+            {
+             name:"pen",
+             price:20
+            }
+        ];
+        let container=document.getElementById("listContainer");
+        let ul=document.createElement("ul");
+        for(let i=0;i<items.length;i++){
+            let li=document.createElement("li");
+            li.textContent=items[i].name+"-" +items[i].price;
+            ul.appendChild(li);
+        }
+        container.appendChild(ul);
+    </script>
+    
+</body>
+</html>
