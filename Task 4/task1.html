@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic scoreboard</title>
+</head>
+<body>
+    <h2>Scoreboard</h2>
+    <div id="scoreboard"></div>
+    <p id="high"></p>
+    <p id="low"></p>
+    <script>
+        let scores=[10, 15, 8];
+        function renderScores() {
+            let container=document.getElementById("scoreboard");
+            container.innerHTML="";
+            for(leti=0;i<scores.length;i++) {
+
+                let player = document.createElement("div");
+                player.innerHTML="Player "+(i+1)+":"+scores[i]+
+                    " <button onclick='increase(" + i + ")'>+</button>" +
+                    " <button onclick='decrease(" + i + ")'>-</button>";
+                container.appendChild(player);
+            }
+            let highest=Math.max(...scores);
+            let lowest=Math.min(...scores);
+            document.getElementById("high").innerText="Highest Score: "+highest;
+            document.getElementById("low").innerText="Lowest Score: "+lowest;
+        }
+        function increase(index) {
+            scores[index]++;
+            renderScores();
+        }
+        function decrease(index) {
+            scores[index]--;
+            renderScores();
+        }
+        renderScores();
+    </script>
+</body>
+
+</html>

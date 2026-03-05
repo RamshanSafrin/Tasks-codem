@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Highlight</title>
+</head>
+<body>
+    <h2>Search</h2>
+    <input type="text" id="search" onkeyup="searchText()">
+    <ul id="list"></ul>
+    <p id="msg"></p>
+    <script>
+        let texts=["JavaScript","Java","Python","React"];
+        function displayTexts(list) {
+            let ul=document.getElementById("list");
+            ul.innerHTML="";
+            document.getElementById("msg").innerText="";
+            if (list.length==0) {
+                document.getElementById("msg").innerText="No results found";
+                return;
+            }
+            for (let i=0;i<list.length;i++) {
+                let li=document.createElement("li");
+                li.innerText=list[i];
+                ul.appendChild(li);
+            }
+        }
+        function searchText() {
+            let value=document.getElementById("search").value.toLowerCase();
+            let result=[];
+            for (let i=0;i<texts.length;i++) {
+                if (texts[i].toLowerCase().includes(value)) {
+                    result.push(texts[i]);
+                }
+            }
+            displayTexts(result);
+        }
+        displayTexts(texts);
+    </script>
+
+</body>
+
+</html>

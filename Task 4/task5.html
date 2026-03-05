@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Pagination</title>
+</head>
+<body>
+    <h2>Items</h2>
+    <ul id="list"></ul>
+    <button onclick="prevPage()" id="prev">Previous</button>
+    <button onclick="nextPage()" id="next">Next</button>
+    <script>
+        let allItems=[1,2,3,4,5,6,7,8,9,10,
+        11,12,13,14,15,16,17,18,19,20];
+        let currentPage=1;
+        let itemsPerPage=5;
+        function displayItems() {
+            let list=document.getElementById("list");
+            list.innerHTML="";
+            let start=(currentPage-1)*itemsPerPage;
+            let end=start+itemsPerPage;
+            for (let i=start;i<end && i<allItems.length;i++) {
+                let li=document.createElement("li");
+                li.innerText=allItems[i];
+                list.appendChild(li);
+            }
+            document.getElementById("prev").disabled=currentPage==1;
+            document.getElementById("next").disabled=end>=allItems.length;
+        }
+        function nextPage() {
+            currentPage++;
+            displayItems();
+        }
+        function prevPage() {
+            currentPage--;
+            displayItems();
+        }
+        displayItems();
+    </script>
+
+</body>
+
+</html>

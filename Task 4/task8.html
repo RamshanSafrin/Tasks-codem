@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Tracker</title>
+</head>
+
+<body>
+    <h2>Student Attendance</h2>
+    <div id="list"></div>
+    <p id="count"></p>
+    <script>
+        let students = [
+            { name: "Ali", present: true },
+            { name: "Sara", present: false }
+        ];
+        function displayStudents() {
+            let div = document.getElementById("list");
+            div.innerHTML = "";
+            let present = 0;
+            let absent = 0;
+            for (let i = 0; i < students.length; i++) {
+                let status = students[i].present ? "Present" : "Absent";
+                let p = document.createElement("p");
+                p.innerHTML = students[i].name + " - " + status + " <button onclick='toggle(" + i + ")'>Toggle</button>";
+                div.appendChild(p);
+                if (students[i].present) {
+                    present++;
+                } else {
+                    absent++;
+                }
+            }
+            document.getElementById("count").innerText = "Present: " + present + " Absent: " + absent;
+        }
+        function toggle(i) {
+            students[i].present = !students[i].present;
+            displayStudents();
+        }
+        displayStudents();
+    </script>
+</body>
+
+</html>

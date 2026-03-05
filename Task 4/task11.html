@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Visualizer</title>
+</head>
+<body>
+    <h2>Sorting Visualizer</h2>
+    <div id="list"></div>
+    <button onclick="sortNumbers()">Sort</button>
+    <script>
+        let numbers=[5,2,4];
+        function display(arr) {
+            let div=document.getElementById("list");
+            let p=document.createElement("p");
+            p.innerText=arr.join(" ");
+            div.appendChild(p);
+        }
+        function showInitial() {
+            let div=document.getElementById("list");
+            div.innerHTML=numbers.join(" ");
+        }
+        function sortNumbers() {
+            let div=document.getElementById("list");
+            div.innerHTML="";
+            display(numbers);
+            for (let i=0;i<numbers.length;i++) {
+                for (let j=0;j<numbers.length-1;j++) {
+                    if (numbers[j]>numbers[j+1]) {
+                        let temp=numbers[j];
+                        numbers[j]=numbers[j+1];
+                        numbers[j+1]=temp;
+                        display(numbers);
+                    }
+                }
+            }
+        }
+        showInitial();
+    </script>
+</body>
+</html>

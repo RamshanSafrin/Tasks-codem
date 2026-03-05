@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Counter</title>
+</head>
+<body>
+    <h2>Live Character Counter</h2>
+    <div id="area"></div>
+    <p id="count"></p>
+    <p id="longest"></p>
+    <button onclick="submitText()">Submit</button>
+    <script>
+        let inputs=[];
+        let longest="";
+        let textarea=document.createElement("textarea");
+        textarea.onkeyup=updateCount;
+        document.getElementById("area").appendChild(textarea);
+        function updateCount() {
+            let text=textarea.value;
+            document.getElementById("count").innerText="Characters: "+text.length;
+            if (text.length>longest.length) {
+                longest=text;
+            }
+            document.getElementById("longest").innerText="Longest Input: "+longest;
+        }
+        function submitText() {
+            let text=textarea.value;
+            if (text!="") {
+                inputs.push(text);
+                console.log(inputs);
+                textarea.value="";
+                document.getElementById("count").innerText="Characters: 0";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Manager</title>
+</head>
+<body>
+    <h2>Inventory</h2>
+    <ul id="list"></ul>
+    <script>
+        let inventory=[
+            {product:"Pen",quantity:10},
+            {product:"Notebook",quantity:5},
+            {product:"Eraser",quantity:0}
+        ];
+        function displayInventory() {
+            let ul=document.getElementById("list");
+            ul.innerHTML="";
+            for (let i=0;i<inventory.length;i++) {
+                let li=document.createElement("li");
+                li.innerHTML=inventory[i].product+" - "+inventory[i].quantity+" <button onclick='increase("+i+")'>Increase</button> <button onclick='decrease("+i+")'>Decrease</button>";
+                ul.appendChild(li);
+            }
+        }
+        function increase(i) {
+            inventory[i].quantity++;
+            displayInventory();
+        }
+        function decrease(i) {
+            if (inventory[i].quantity>0) {
+                inventory[i].quantity--;
+            }
+            displayInventory();
+        }
+        displayInventory();
+    </script>
+</body>
+</html>

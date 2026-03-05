@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Rule Checker</title>
+</head>
+<body>
+    <h2>Password Checker</h2>
+    <input type="password" id="password" onkeyup="checkPassword()">
+    <ul id="ruleList"></ul>
+    <script>
+        let rules=[
+            {rule:"Minimum 8 characters",isPassed:false},
+            {rule:"At least one uppercase letter",isPassed:false},
+            {rule:"At least one number",isPassed:false},
+            {rule:"At least one special character",isPassed:false}
+        ];
+        function displayRules(){
+            let ul=document.getElementById("ruleList");
+            ul.innerHTML="";
+            for(let i=0;i<rules.length;i++){
+                let li=document.createElement("li");
+                if(rules[i].isPassed){
+                    li.textContent=rules[i].rule+" - Passed";
+                }else{
+                    li.textContent=rules[i].rule+" - Failed";
+                }
+                ul.appendChild(li);
+            }
+        }
+
+        function checkPassword(){
+            let pass=document.getElementById("password").value;
+            if(pass.length>=8){
+                rules[0].isPassed=true;
+            }else{
+                rules[0].isPassed=false;
+            }
+            if(/[A-Z]/.test(pass)){
+                rules[1].isPassed=true;
+            }else{
+                rules[1].isPassed=false;
+            }
+
+            if(/[0-9]/.test(pass)){
+                rules[2].isPassed=true;
+            }else{
+                rules[2].isPassed=false;
+            }
+
+            if(/[!@#$%^&*(),.?":{}|<>]/.test(pass)){
+                rules[3].isPassed=true;
+            }else{
+                rules[3].isPassed=false;
+            }
+            let failedRules=[];
+            for(let i=0;i<rules.length;i++){
+                if(!rules[i].isPassed){
+                    failedRules.push(rules[i].rule);
+                }
+            }
+            displayRules();
+            console.log("Failed Rules:",failedRules);
+        }
+        displayRules();
+    </script>
+</body>
+</html>

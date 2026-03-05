@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment System</title>
+</head>
+<body>
+    <h2>Comments</h2>
+    <div id="form"></div>
+    <div id="list"></div>
+    <script>
+        let comments=[];
+        let input=document.createElement("input");
+        let button=document.createElement("button");
+        button.innerText="Submit";
+        document.getElementById("form").appendChild(input);
+        document.getElementById("form").appendChild(button);
+        button.onclick=function() {
+            if (input.value!="") {
+                comments.push(input.value);
+                input.value="";
+                displayComments();
+            }
+        };
+        function displayComments() {
+            let div=document.getElementById("list");
+            div.innerHTML="";
+            if (comments.length==0) {
+                div.innerText="No Comments In the Array";
+                return;
+            }
+            let count=0;
+            for (let i=comments.length-1;i>=0 && count<5;i--) {
+                let p=document.createElement("p");
+                p.innerText=comments[i];
+                div.appendChild(p);
+                count++;
+            }
+        }
+        displayComments();
+    </script>
+</body>
+</html>

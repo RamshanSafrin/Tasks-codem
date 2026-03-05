@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Engine</title>
+</head>
+<body>
+    <h2>Quiz</h2>
+    <div id="quiz"></div>
+    <p id="result"></p>
+    <script>
+        let quiz=[
+            {question:"What is JavaScript?",options:["Language","Framework","Database"],answer:"Language"},
+            {question:"Which keyword declares a variable?",options:["var","loop","print"],answer:"var"},
+            {question:"Which symbol is used for comments in JavaScript?",options:["//","##","**"],answer:"//"}
+        ];
+        let current=0;
+        let score=0;
+        function showQuestion() {
+            let div=document.getElementById("quiz");
+            div.innerHTML="";
+            if (current>=quiz.length) {
+                document.getElementById("result").innerText="Final Score: "+score+"/3";
+                return;
+            }
+            let q=document.createElement("h3");
+            q.innerText=quiz[current].question;
+            div.appendChild(q);
+            for (let i=0;i<quiz[current].options.length;i++) {
+                let btn=document.createElement("button");
+                btn.innerText=quiz[current].options[i];
+                btn.onclick=function() {
+                    checkAnswer(quiz[current].options[i]);
+                };
+                div.appendChild(btn);
+            }
+        }
+        function checkAnswer(option) {
+            if (option==quiz[current].answer) {
+                score++;
+            }
+            current++;
+            showQuestion();
+        }
+        showQuestion();
+    </script>
+</body>
+</html>

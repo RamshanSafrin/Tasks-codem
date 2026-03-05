@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Color Pattern Generator</title>
+</head>
+<body>
+<h2>Color Pattern Generator</h2>
+<div id="grid"></div>
+
+<script>
+let colors=["red","blue","green","yellow"];
+let rows=3;
+let cols=5;
+let container=document.getElementById("grid");
+container.innerHTML="";
+
+let colorIndex=0;
+for(let i=0;i<rows;i++){
+    let row="";
+    for(let j=0;j<cols;j++){
+        row+='<div style="width:30px;height:30px;display:inline-block;margin:2px;background-color:'+colors[colorIndex%colors.length]+'"></div>';
+        colorIndex++;
+    }
+    container.innerHTML+=row+"<br>";
+}
+</script>
+</body>
+</html>
