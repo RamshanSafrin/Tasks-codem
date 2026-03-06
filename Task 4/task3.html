@@ -9,7 +9,6 @@
 
 <body>
     <h2>User list</h2>
-
     <table border="1">
         <thead>
             <tr>
@@ -21,13 +20,11 @@
         </thead>
         <tbody id="userTable"></tbody>
     </table>
-
     <script>
         let users=[
             { name: "Ali", age: 22, email: "ali@mail.com" },
             { name: "Sara", age: 25, email: "sara@mail.com" }
         ];
-
         function displayUsers() {
             let table=document.getElementById("userTable");
             table.innerHTML="";
@@ -38,13 +35,11 @@
                 table.appendChild(row);
             }
         }
-
         function editUser(index) {
             let table=document.getElementById("userTable");
             let u=users[index];
             table.children[index].innerHTML="<td><input id='name"+index+"' value='"+u.name+"'></td><td><input id='age"+index+"' value='"+u.age+"'></td><td>"+u.email+"</td><td><button onclick='saveUser("+index+")'>Save</button></td>";
         }
-
         function saveUser(index) {
             let name=document.getElementById("name"+index).value;
             let age=document.getElementById("age"+index).value;
@@ -52,10 +47,7 @@
             users[index].age=age;
             displayUsers();
         }
-
         displayUsers();
     </script>
-
 </body>
-
 </html>
