@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard Summary</title>
+  <style>
+    .card { 
+     display: inline-block;
+     border: 1px solid #ccc; 
+     padding: 10px; margin: 5px; 
+     width: 150px;
+     text-align: center; }
+  </style>
+</head>
+<body>
+  <h2>Dashboard Summary</h2>
+  <div class="card" id="usersCard"></div>
+  <div class="card" id="ordersCard"></div>
+  <div class="card" id="revenueCard"></div>
+  <script>
+    let users = [1,2,3,4];
+    let orders = [500, 1200, 800];
+    let revenue = [5000, 3000];
+    function updateSummary() {
+      document.getElementById("usersCard").innerText = `Total Users: ${users.length}`;
+      document.getElementById("ordersCard").innerText = `Total Orders: ${orders.length}`;
+      const totalRevenue = revenue.reduce((acc, val) => acc + val, 0);
+      document.getElementById("revenueCard").innerText = `Total Revenue: ₹${totalRevenue}`;
+    }
+    updateSummary();
+    users.push(5);
+    updateSummary();
+  </script>
+</body>
+</html>

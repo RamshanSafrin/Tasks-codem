@@ -1,0 +1,28 @@
+<h2>Drag Order Simulator</h2>
+<div id="orderList"></div>
+<script>
+let items = ["Item A", "Item B", "Item C", "Item D"];
+function renderItems() {
+  let html="<ul>";
+  items.forEach((item, index) => {
+    html+=`<li>
+      ${item} 
+      <button onclick="moveUp(${index})">Move Up</button>
+      <button onclick="moveDown(${index})">Move Down</button>
+    </li>`;
+  });
+  html+="</ul>";
+  document.getElementById("orderList").innerHTML=html;
+}
+function moveUp(index) {
+  if (index===0) return; 
+  [items[index-1],items[index]]=[items[index], items[index-1]];
+  renderItems();
+}
+function moveDown(index) {
+  if (index===items.length-1) return; 
+  [items[index],items[index+1]]=[items[index+1],items[index]];
+  renderItems();
+}
+renderItems();
+</script>
