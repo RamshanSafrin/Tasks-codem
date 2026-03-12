@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Form Validation - Input Presence Check</title>
+    <style>
+        button{
+            color:black;
+            background-color: bisque;
+            border-radius: 10px;
+            padding:7px 15px
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Registration Form</h2>
+    <form onsubmit="return validateForm()">
+        Name: <input type="text" id="name"><br><br>
+        Email: <input type="email" id="email"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        function validateForm(){ 
+            let name = document.getElementById("name").value;
+            let email= document.getElementById("email").value;
+
+            if (name=== "" ||email=== "") {
+                console.log("Validation Error: Name or Email cannot be empty");
+                return false;
+            }
+            console.log("Form submitted successfully");
+            return true;
+    }
+    </script>
+</body>
+
+</html>

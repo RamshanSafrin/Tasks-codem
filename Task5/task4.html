@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function with default parameters</title>
+</head>
+<body>
+    <script>
+        function calculateDiscount(price,discount=10){
+            let finalPrice=price-(price*discount/100);
+            return finalPrice;
+        }
+        let result1=calculateDiscount(1000,20);
+        let result2=calculateDiscount(1000);
+        console.log("Final price with 20 percent discount is:"+result1);
+        console.log("Final price with default discount is:"+result2);
+    </script>
+</body>
+</html>

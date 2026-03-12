@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Function</title>
+</head>
+<body>
+    <script>
+        function processNumber(num,callback){
+            return callback(num);
+        }
+        function doulbleNum(n){
+            return n*2;
+        }
+        function halfNum(n){
+            return n/2;
+        }
+
+        let doubleResult=processNumber(5,doulbleNum);
+        let halfNumResult=processNumber(5,halfNum);
+
+        console.log("Double the number is: "+doubleResult);
+        console.log("Half the number is: "+halfNumResult);
+    </script>
+</body>
+</html>
